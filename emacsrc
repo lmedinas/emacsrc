@@ -1,0 +1,186 @@
+;; List of third-party packages installed: tabbar, powerline, soft-morning-theme, solarized-theme, sublime-themes, twilight-bright-theme, zenburn-theme
+;;
+;; Custom paths for themes etc...
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/sublime-themes-20130911.1404/") 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/twilight-bright-theme-20130605.943/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/zenburn-theme-20131104.1216/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/solarized-theme-20131028.713/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/soft-morning-theme-20130929.853/")
+
+;; Custom stuff set on emacs this could be overwriten
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
+ '(ansi-term-color-vector [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"])
+ '(compilation-message-face (quote default))
+ '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (zenburn)))
+ '(custom-safe-themes (quote ("216e6d0d3576e5c35785e68ca07b1c71f01ee4f3d80cb3b4da0ba55827bb3e5e" "d63e19a84fef5fa0341fa68814200749408ad4a321b6d9f30efc117aeaf68a2e" "337047491f7db019df2ba54483408d7d7faea0bda61e4c4f5e8cf2f4e3264478" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "1cf3f29294c5a3509b7eb3ff9e96f8e8db9d2d08322620a04d862e40dc201fe2" "8bb1e9a22e9e9d405ca9bdf20b91301eba12c0b9778413ba7600e48d2d3ad1fb" "62b86b142b243071b5adb4d48a0ab89aefd3cf79ee3adc0bb297ea873b36d23f" "c5207e7b8cc960e08818b95c4b9a0c870d91db3eaf5959dd4eba09098b7f232b" "61d1a82d5eaafffbdd3cab1ac843da873304d1f05f66ab5a981f833a3aec3fc0" "d293542c9d4be8a9e9ec8afd6938c7304ac3d0d39110344908706614ed5861c9" "c7359bd375132044fe993562dfa736ae79efc620f68bab36bd686430c980df1c" "f220c05492910a305f5d26414ad82bf25a321c35aa05b1565be12f253579dec6" "d0ff5ea54497471567ed15eb7279c37aef3465713fb97a50d46d95fe11ab4739" "dc46381844ec8fcf9607a319aa6b442244d8c7a734a2625dac6a1f63e34bc4a6" "29a4267a4ae1e8b06934fec2ee49472daebd45e1ee6a10d8ff747853f9a3e622" "978bd4603630ecb1f01793af60beb52cb44734fc14b95c62e7b1a05f89b6c811" "e26780280b5248eb9b2d02a237d9941956fc94972443b0f7aeec12b5c15db9f3" default)))
+ '(fci-rule-character-color "#d9d9d9")
+ '(fci-rule-color "#073642")
+ '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
+ '(highlight-tail-colors (quote (("#073642" . 0) ("#546E00" . 20) ("#00736F" . 30) ("#00629D" . 50) ("#7B6000" . 60) ("#8B2C02" . 70) ("#93115C" . 85) ("#073642" . 100))))
+ '(iswitchb-mode t)
+ '(linum-format " %7i ")
+ '(magit-diff-use-overlays nil)
+ '(show-paren-mode t)
+ '(syslog-debug-face (quote ((t :background unspecified :foreground "#2aa198" :weight bold))))
+ '(syslog-error-face (quote ((t :background unspecified :foreground "#dc322f" :weight bold))))
+ '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
+ '(syslog-info-face (quote ((t :background unspecified :foreground "#268bd2" :weight bold))))
+ '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
+ '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
+ '(syslog-warn-face (quote ((t :background unspecified :foreground "#cb4b16" :weight bold))))
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map (quote ((20 . "#dc322f") (40 . "#CF4F1F") (60 . "#C26C0F") (80 . "#b58900") (100 . "#AB8C00") (120 . "#A18F00") (140 . "#989200") (160 . "#8E9500") (180 . "#859900") (200 . "#729A1E") (220 . "#609C3C") (240 . "#4E9D5B") (260 . "#3C9F79") (280 . "#2aa198") (300 . "#299BA6") (320 . "#2896B5") (340 . "#2790C3") (360 . "#268bd2"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list (quote (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 113 :width normal)))))
+
+;; Enable tabs on emacs (requires tabbar package)
+(require 'tabbar)
+(tabbar-mode 1)
+(global-set-key (kbd "C-<") 'tabbar-backward)
+(global-set-key (kbd "C->") 'tabbar-forward) ;; tabbar.el, put all the buffers on the tabs.
+(setq tabbar-buffer-groups-function
+          (lambda ()
+            (list "All")))
+
+;; set font lock mode
+(setq global-font-lock-mode t)
+
+;; maximum fontification
+(setq font-lock-maximum-decoration t)
+
+;; not ident tabs
+(setq-default indent-tabs-mode nil)
+
+;; Set c programming default style
+(setq c-default-style "linux"
+          c-basic-offset 3)
+
+;; Enable package manager on emacs
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  )
+
+;; Set proxy!
+(setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+     ("http" . "proxy.com:8080")
+     ("https" . "proxy.com:8080")))
+
+(setq url-http-proxy-basic-auth-storage
+    (list (list "proxy.com:8080"
+                (cons "Input your LDAP UID !"
+                      (base64-encode-string "Us3r:Passw0rd")))))
+
+;; Save open buffer state after quit emacs
+(desktop-save-mode 1)
+
+;; Enable CEDET with semantic-mode
+(global-ede-mode 1)
+(require 'semantic/sb)
+(semantic-mode 1)
+(global-semantic-idle-completions-mode t)
+(global-semantic-decoration-mode t)
+(global-semantic-highlight-func-mode t)
+(global-semantic-show-unmatched-syntax-mode t)
+
+;; Enable ido mode for better buffer behavior
+(require 'ido)
+(ido-mode 'both)
+(ido-mode t)
+
+;; Add menu entry for indexing file symbols (using imenu)
+(add-hook 'my-mode-hook 'imenu-add-menubar-index)
+'(imenu-auto-rescan t)
+(defun try-to-add-imenu ()
+  (condition-case nil (imenu-add-to-menubar "File Symbols") (error nil)))
+ (add-hook 'font-lock-mode-hook 'try-to-add-imenu)
+
+;; Add uniquify to avoid buffers with same names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+(setq uniquify-separator "/")
+(setq uniquify-after-kill-buffer-p t) ; rename after killing uniquified
+(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
+;; Move between open window buffers using Meta key
+(windmove-default-keybindings 'meta)
+
+;; truncate lines
+(setq-default truncate-lines nil)
+
+;; ident tabs
+(setq-default indent-tabs-mode nil)
+
+;; Highlight words when performing search
+(setq search-highlight t)
+
+;; transient ?
+(transient-mark-mode t)
+
+;; enable clipboard copy&paste - is this default ?
+(setq x-select-enable-clipboard t)
+
+;; ansi-color
+(require 'ansi-color)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; Disable autobackup
+(setq make-backup-files nil) ; stop creating those backup~ files
+(setq auto-save-default nil) ; stop creating those #autosave# files
+
+;; Add powerline to replace default emacs bar
+(require 'powerline)
+(powerline-default-theme)
+(setq powerline-arrow-shape 'arrow)   ;; the default
+(setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+(setq powerline-default-theme nil)
+
+;; Set cool fonts on Windows 7
+(when (string-equal system-type "windows-nt")
+(set-default-font "-outline-Consolas-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1")
+(set-face-font 'default "-outline-Consolas-normal-r-normal-normal-*-*-96-96-c-*-iso8859-1")
+(set-face-font 'bold "-outline-Consolas-bold-r-normal-normal-*-*-96-96-c-*-iso8859-1")
+(set-face-font 'italic "-outline-Consolas-normal-i-normal-normal-*-*-96-96-c-*-iso8859-1")
+(set-face-font 'bold-italic "-outline-Consolas-bold-i-normal-normal-*-*-96-96-c-*-iso8859-1")
+)
+
+;; Disable Toolbar
+(tool-bar-mode -1)
+
+;; Set path and filename on window top bar
+;;(setq frame-title-format '((:eval default-directory)))
+(setq frame-title-format
+  '("" invocation-name ": "(:eval (if (buffer-file-name)
+                (abbreviate-file-name (buffer-file-name))
+                  "%b"))))
+
+;; Make cygwin on Widnows work with emacs for grep, find etc...
+(when (string-equal system-type "windows-nt")
+(progn
+(setq cygwin-bin "C:/cygwinpath/bin")
+(setq gnu-bin "C:/cygwinpath/bin")
+(setenv "PATH"
+(concat cygwin-bin ";" gnu-bin ";"))
+(setq exec-path
+'(cygwin-bin gnu-bin))))
+
