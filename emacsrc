@@ -1,5 +1,9 @@
 ;; List of third-party packages installed: tabbar, powerline, soft-morning-theme, solarized-theme, sublime-themes, twilight-bright-theme, zenburn-theme
 ;;
+
+;; Server start to use with emacsclient useful
+(server-start) 
+
 ;; Custom paths for themes etc...
 (add-to-list 'load-path "~/.emacs.d/elpa/")
 (let ((default-directory "~/.emacs.d/elpa/"))
@@ -206,13 +210,21 @@
 ;; Enable ibuffer for nice buffer switching
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-show-empty-filter-groups nil)
+
 ;;sort on major-mode
 (setq ibuffer-default-sorting-mode 'major-mode)
 
 ;; switch the minibuffers in circle
 (setq enable-recursive-minibuffers t)
 
+;; Dont display logo at startup
+(setq inhibit-startup-message t)
+
+;; Enable hide and show
+(add-hook 'c-mode-common-hook #'hs-minor-mode)
+
 ;; Keybindings
 (global-set-key [f1]   'revert-buffer)
+(global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
 (fset 'yes-or-no-p 'y-or-n-p)
 
