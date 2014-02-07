@@ -223,6 +223,17 @@
 ;; Enable hide and show
 (add-hook 'c-mode-common-hook #'hs-minor-mode)
 
+;; Set scroll step to 1
+(setq-default scroll-step 1)
+
+;; modification for CUA mode
+(setq cua-auto-tabify-rectangles nil) 
+(setq cua-keep-region-after-copy t) 
+
+;; Yasnippets
+(require 'yasnippet)
+(yas-global-mode 1)
+
 ;; Keybindings
 (global-set-key [f1]   'revert-buffer)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
