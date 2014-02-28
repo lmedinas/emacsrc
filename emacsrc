@@ -1,5 +1,5 @@
-;; List of third-party packages installed: tabbar, powerline, soft-morning-theme, solarized-theme, sublime-themes, twilight-bright-theme, zenburn-theme
-;;
+;; List of third-party packages installed: powerline, soft-morning-theme, solarized-theme, zenburn-theme
+;; yasnippet, flatland-theme, ample-theme, leuven-theme
 
 ;; Server start to use with emacsclient useful
 (server-start) 
