@@ -55,13 +55,13 @@
  '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 113 :width normal)))))
 
 ;; Enable tabs on emacs (requires tabbar package)
-(require 'tabbar)
-(tabbar-mode 1)
-(global-set-key (kbd "C-<") 'tabbar-backward)
-(global-set-key (kbd "C->") 'tabbar-forward) ;; tabbar.el, put all the buffers on the tabs.
-(setq tabbar-buffer-groups-function
-          (lambda ()
-            (list "All")))
+;;(require 'tabbar)
+;;(tabbar-mode 1)
+;;(global-set-key (kbd "C-<") 'tabbar-backward)
+;;(global-set-key (kbd "C->") 'tabbar-forward) ;; tabbar.el, put all the buffers on the tabs.
+;;(setq tabbar-buffer-groups-function
+;;          (lambda ()
+;;            (list "All")))
             
 (require 'whitespace)
 (autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization." t)
@@ -102,13 +102,13 @@
 (desktop-save-mode 1)
 
 ;; Enable CEDET with semantic-mode
-(global-ede-mode 1)
-(require 'semantic/sb)
-(semantic-mode 1)
-(global-semantic-idle-completions-mode t)
-(global-semantic-decoration-mode t)
-(global-semantic-highlight-func-mode t)
-(global-semantic-show-unmatched-syntax-mode t)
+;;(global-ede-mode 1)
+;;(require 'semantic/sb)
+;;(semantic-mode 1)
+;;(global-semantic-idle-completions-mode t)
+;;(global-semantic-decoration-mode t)
+;;(global-semantic-highlight-func-mode t)
+;;(global-semantic-show-unmatched-syntax-mode t)
 
 ;; Enable ido mode for better buffer behavior
 (require 'ido)
@@ -226,16 +226,23 @@
 ;; Set scroll step to 1
 (setq-default scroll-step 1)
 
+;; Enable electric pair mode for automaticaly add brackets and parenteses
+(electric-pair-mode +1)
+
 ;; modification for CUA mode
 (setq cua-auto-tabify-rectangles nil) 
-(setq cua-keep-region-after-copy t) 
 
 ;; Yasnippets
 (require 'yasnippet)
 (yas-global-mode 1)
 
+;; Dired stuff
+(put 'dired-find-alternate-file 'disabled nil)
+
 ;; Keybindings
 (global-set-key [f1]   'revert-buffer)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
+(global-set-key (kbd "<home>") 'beginning-of-buffer)
+(global-set-key (kbd "<end>") 'end-of-buffer)
 (fset 'yes-or-no-p 'y-or-n-p)
 
