@@ -1,5 +1,5 @@
 ;; List of third-party packages installed: powerline, soft-morning-theme, solarized-theme, zenburn-theme
-;; yasnippet, flatland-theme, ample-theme, leuven-theme
+;; yasnippet, flatland-theme, ample-theme, leuven-theme, multiple-cursors
 
 ;; Server start to use with emacsclient useful
 (server-start) 
@@ -239,10 +239,21 @@
 ;; Dired stuff
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; Multiple cursors
+(require 'multiple-cursors)
+(global-set-key [f5] 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-p") 'mc/mark-pop)
+
 ;; Keybindings
-(global-set-key [f1]   'revert-buffer)
+(global-set-key [f1] 'revert-buffer)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
+(global-set-key [f6] 'dired)
+(global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-S-c C-S-c") 'uncomment-region)
 (fset 'yes-or-no-p 'y-or-n-p)
 
