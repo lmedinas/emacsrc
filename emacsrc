@@ -1,5 +1,5 @@
-;; List of third-party packages installed: powerline, soft-morning-theme, solarized-theme, zenburn-theme
-;; yasnippet, flatland-theme, ample-theme, leuven-theme, multiple-cursors
+;; List of third-party packages installed: powerline, soft-morning-theme, zenburn-theme
+;; yasnippet, flatland-theme, ample-theme, leuven-theme, multiple-cursors, auto-complete
 
 ;; Server start to use with emacsclient useful
 (server-start) 
@@ -239,21 +239,60 @@
 ;; Dired stuff
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; Set scroll settings to make emacs more modern :)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq-default scroll-step 1)
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+ 
+;; Try to split windows vertically 
+(setq split-width-threshold 9999)
+
+;; Save buffer places on quit
+(require 'saveplace)
+(setq-default save-place t)
+
+;; Another tweaks
+(setq x-select-enable-primary t)
+(setq mouse-yank-at-point t)
+
 ;; Multiple cursors
 (require 'multiple-cursors)
-(global-set-key [f5] 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "M-p") 'mc/mark-pop)
 
+;; Auto Complete
+(require 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20140605.1908/dict")
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
+;; Linum mode
+(global-linum-mode t)
+
+;; Offset the number by two spaces to work around some weird fringe glitch    
+(setq linum-format "  %d ")
+
+;; Display current function on powerline
+(which-function-mode 1)
+
 ;; Keybindings
 (global-set-key [f1] 'revert-buffer)
+(global-set-key [f7] 'imenu)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key [f6] 'dired)
 (global-set-key (kbd "C-c C-c") 'comment-region)
 (global-set-key (kbd "C-S-c C-S-c") 'uncomment-region)
+(global-set-key [f5] 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-q") 'mc/mark-pop)
 (fset 'yes-or-no-p 'y-or-n-p)
-
