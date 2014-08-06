@@ -54,15 +54,20 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 113 :width normal)))))
 
-;; Enable tabs on emacs (requires tabbar package)
-;;(require 'tabbar)
-;;(tabbar-mode 1)
-;;(global-set-key (kbd "C-<") 'tabbar-backward)
-;;(global-set-key (kbd "C->") 'tabbar-forward) ;; tabbar.el, put all the buffers on the tabs.
-;;(setq tabbar-buffer-groups-function
-;;          (lambda ()
-;;            (list "All")))
-            
+;; New empty buffer from https://www.padory.com/posts/53d16430b25be86abf000003
+(defun new-empty-buffer ()
+  (interactive)
+  (let ((n 0)
+        new-buf)
+    (while (progn
+             (setq new-buf (concat "-untitled-"
+                                       (if (= n 0) "0" (int-to-string n))
+                                       "-"))
+             (incf n)
+             (get-buffer new-buf)))
+    (switch-to-buffer (get-buffer-create new-buf))
+    (text-mode)))
+
 (require 'whitespace)
 (autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization." t)
 
@@ -100,15 +105,6 @@
 
 ;; Save open buffer state after quit emacs
 (desktop-save-mode 1)
-
-;; Enable CEDET with semantic-mode
-;;(global-ede-mode 1)
-;;(require 'semantic/sb)
-;;(semantic-mode 1)
-;;(global-semantic-idle-completions-mode t)
-;;(global-semantic-decoration-mode t)
-;;(global-semantic-highlight-func-mode t)
-;;(global-semantic-show-unmatched-syntax-mode t)
 
 ;; Enable ido mode for better buffer behavior
 (require 'ido)
@@ -281,18 +277,37 @@
 ;; Display current function on powerline
 (which-function-mode 1)
 
+;; Open vertical minibuffer instead
+(setq split-width-threshold 9999)
+
+;; Save place
+(require 'saveplace)
+(setq-default save-place t)
+
+;; Testing
+(setq x-select-enable-primary t)
+(setq mouse-yank-at-point t)
+
+;; Better scrolling
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
+
 ;; Keybindings
 (global-set-key [f1] 'revert-buffer)
+(global-set-key [f5] 'mc/edit-lines)
+(global-set-key [f6] 'dired)
 (global-set-key [f7] 'imenu)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
-(global-set-key [f6] 'dired)
 (global-set-key (kbd "C-c C-c") 'comment-region)
 (global-set-key (kbd "C-S-c C-S-c") 'uncomment-region)
-(global-set-key [f5] 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "M-q") 'mc/mark-pop)
+(global-set-key "\M- " 'hippie-expand)
+(global-set-key (kbd "s-n") 'new-empty-buffer)
 (fset 'yes-or-no-p 'y-or-n-p)
