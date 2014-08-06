@@ -284,8 +284,7 @@
 (require 'saveplace)
 (setq-default save-place t)
 
-;; Testing
-(setq x-select-enable-primary t)
+;; Middle button paste
 (setq mouse-yank-at-point t)
 
 ;; Better scrolling
