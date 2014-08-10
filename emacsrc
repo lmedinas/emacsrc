@@ -203,6 +203,12 @@
 (setq exec-path
 '(cygwin-bin gnu-bin))))
 
+;; Special for OSX
+(when (string-equal system-type "darwin")
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+      default-input-method "MacOSX")
+
 ;; Enable ibuffer for nice buffer switching
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-show-empty-filter-groups nil)
