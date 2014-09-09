@@ -335,6 +335,8 @@
 (global-set-key [f6] 'dired)
 (global-set-key [f7] 'imenu)
 (global-set-key [f8] 'ansi-term)
+(global-set-key [f9] 'whitespace-mode)
+(global-set-key [f12] 'describe-bindings)
 (global-set-key (kbd "C-x C-a") 'mark-whole-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
