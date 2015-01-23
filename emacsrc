@@ -1,5 +1,6 @@
 ;; List of third-party packages installed: powerline, soft-morning-theme, zenburn-theme
 ;; yasnippet, flatland-theme, ample-theme, leuven-theme, multiple-cursors, auto-complete
+;; magit, git-gutter
 
 ;; Server start to use with emacsclient useful
 (server-start) 
@@ -161,12 +162,12 @@
 (setq auto-save-default nil) ; stop creating those #autosave# files
 
 ;; Add powerline to replace default emacs bar
-(require 'powerline)
-(powerline-default-theme)
-(setq powerline-arrow-shape 'arrow)   ;; the default
-(setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
-(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
-(setq powerline-default-theme nil)
+;;(require 'powerline)
+;;(powerline-default-theme)
+;;(setq powerline-arrow-shape 'arrow)   ;; the default
+;;(setq powerline-arrow-shape 'curve)   ;; give your mode-line curves
+;;(setq powerline-arrow-shape 'arrow14) ;; best for small fonts
+;;(setq powerline-default-theme nil)
 
 ;; Set cool fonts on Windows 7
 (when (string-equal system-type "windows-nt")
@@ -261,10 +262,6 @@
 
 ;; Multiple cursors
 (require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "M-p") 'mc/mark-pop)
 
 ;; Auto Complete
 (require 'auto-complete)
@@ -280,6 +277,10 @@
 ;; Offset the number by two spaces to work around some weird fringe glitch    
 (setq linum-format "  %d ")
 
+;; Line and column number in bar
+(line-number-mode 1)
+(column-number-mode 1)
+
 ;; Display current function on powerline
 (which-function-mode 1)
 
@@ -292,6 +293,12 @@
 
 ;; Middle button paste
 (setq mouse-yank-at-point t)
+
+;; Enable git-gutter with linum support
+(global-git-gutter-mode t)
+(git-gutter:linum-setup)
+(setq-default indicate-buffer-boundaries 'left)
+(setq-default indicate-empty-lines +1)
 
 ;; Better scrolling
 (setq scroll-margin 0
